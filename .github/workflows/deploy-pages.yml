@@ -18,18 +18,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Récupérer le code
+      - name: RÃ©cupÃ©rer le code
         uses: actions/checkout@v4
       - name: Installer Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - name: Installer les dépendances
+      - name: Installer les dÃ©pendances
         run: npm ci
       - name: Construire la boutique
         run: npm run build
-      - name: Préparer l’artefact Pages
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+      - name: PrÃ©parer lâ€™artefact Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
