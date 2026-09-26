@@ -66,8 +66,8 @@ const router = createBrowserRouter(
       { path: "contact", element: <ContactPage /> },
       { path: "faq", element: <FaqPage /> },
 
-      // Raccourci local vers le dashboard admin sÃ©parÃ©.
-      { path: "admin", element: <LocalAdminRedirect /> },
+      // Raccourci local vers le dashboard de gestion sÃ©parÃ©.
+      { path: "vrai-admin", element: <LocalAdminRedirect /> },
 
       // Fallback
       { path: "*", element: <Navigate to="/" replace /> },
